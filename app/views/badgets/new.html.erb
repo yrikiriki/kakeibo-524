@@ -1,0 +1,17 @@
+<%= render "shared/second-header" %>
+<div class="badget-list-main">
+<div class="badget-list-title">収入入力</div>
+<%= form_with model: @badget,url: badgets_path, local: true do |f| %>
+<div class="badget-content">
+<div class="badget-month">
+<%= f.collection_select(:month_id, Month.all, :id, :name,{},{class:"select-box", id:"buy-month"})%>
+</div>
+<div class="badget-income">
+<%= f.text_field :income, class:"input-default", id:"badget-income", placeholder:"100000" %>円
+</div>
+<div class='buy-save-btn'>
+    <%= f.submit "保存" ,class:"save-btn" %>
+  </div>
+</div>
+<%end%>
+</div>

@@ -1,0 +1,65 @@
+<%= render "shared/second-header" %>
+<div class='post-btn'>
+<%= link_to 'Share', new_post_path, class: "post-new" %>
+</div>
+<div class='buy-btn'>
+<%= link_to 'Spending', new_buy_path, class: "buy-new" %>
+</div>
+
+<div class="user-main">
+ <div class="user-main1">
+   <div class="user-main-content">
+    <div class="user-nick-name">
+     <%=@name%>
+     </div>
+     
+     <div class="badget-main">
+      <div class="user-income">
+       <div class="income-text">
+        収入:
+        </div>
+        <div class="income">
+        <%unless @income == nil%>
+        <%=@incomes%>円
+        <%else%>
+         <%= link_to 'クリックして入力',new_badget_path,class: "income-edit-btn"%>円
+        <%end%>
+     </div>
+    <div class="income-edit">
+     <%= link_to '編集', new_badget_path, class: "income-edit-btn" %>
+    </div>
+   </div>
+   <div class="user-spending">
+    <div class="spending-text">
+     費用:
+    </div>
+    <div class="spending">
+    <%=@spending%>円
+    </div>
+   </div>
+   <div class="user-balance">
+    <div class="balance-text">
+     残金:
+    </div>
+    <div class="balance">
+    <span id="balance"></span>円
+    </div>
+   </div>
+    </div>
+    <div>
+    <%= month_calendar events: @buy do |date, buy| %>
+    <%= date.day %>
+    <% buy.each do |bu| %>
+    <div>
+    <%= bu.item_name %>
+    </div>
+    <% end %>
+    <% end %>
+    
+ </div>
+   </div>
+ </div>
+ <div class="user-main2">
+ <div class="user-share-list">My Share List</div>
+ <%= render partial: "posts/post", collection: @post %></div>
+ </div>

@@ -1,0 +1,12 @@
+<%= render "shared/header" %>
+<div class='post-btn'>
+<%= link_to 'Share', new_post_path, class: "post-new" %>
+</div>
+<div class="post-all">
+<div class="post-all1">
+<div class="post-all-title">Share List</div>
+<div class="post-list-all">
+<%= render partial: "post", collection: @posts %>
+</div>
+</div>
+</div>

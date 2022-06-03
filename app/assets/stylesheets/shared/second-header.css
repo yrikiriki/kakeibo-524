@@ -1,0 +1,22 @@
+.second-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  height: 85px;
+  background-color: rgb(248, 234, 220);
+}
+.second-header-main{
+  text-decoration: none;
+  font-family: 'Dancing Script', cursive;
+  font-size: 50px;
+  width: 40vw;
+  margin: 10px;
+}
+.second-header-text{
+  text-decoration: none;
+  font-family: 'Dancing Script', cursive;
+  font-size: 50px;
+  color: #000;
+}

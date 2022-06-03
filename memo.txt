@@ -1,0 +1,37 @@
+<% @items.each do |item| %>
+<%if item.user == current_user%>
+
+<div class="item-list-category">
+<%= item.category.name %>
+</div>
+
+<div class="item-list-name">
+<%= item.item_name %>
+</div>
+<%end%>
+<%end%>
+</div>
+</div>
+
+
+<div class="user-spending-main">
+    <div class="user-spending-title">費用詳細</div>
+   <% @buy.each do |buy| %>
+    <div class="user-buy-content">
+    <%if buy.month_id == @day%>
+    <div class="buy-list-category">
+    <%= buy.category.name %>
+    </div>
+    <div class="buy-list-month">
+    <%= buy.month.name %>  <%= buy.day.name %>
+    </div>
+    <div class="buy-list-name">
+    <%= buy.item_name %>
+    </div>
+    <div class="buy-list-price">
+    <%= buy.price %>円
+    </div>
+    <%end%>
+    </div>
+    <%end%>
+    </div>
