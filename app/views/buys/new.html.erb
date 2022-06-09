@@ -1,10 +1,8 @@
 <%= render "shared/second-header" %>
 <div class="buy-list-main">
 <div class="buy-list-title">購入記録</div>
-<%= form_with model: @buy,url: buys_path, local: true do |f| %>
+<%= form_with model: [@record,@buy], local: true do |f| %>
 <div class="buy-list-content">
-<div class="buy-time">
-<%= f.datetime_select :start_time,class:"buy-time"%>
 <div class="buy-category">
 <%= f.collection_select(:category_id, Category.all, :id, :name,{},{class:"select-box", id:"buy-category"})%>
 </div>

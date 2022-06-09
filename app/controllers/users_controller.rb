@@ -5,8 +5,11 @@ class UsersController < ApplicationController
     @post = @user.posts.order(id:"DESC")
     @buy = @user.buys
     @badget = @user.badgets
+    @record =@user.records
     @month = Date.today.month
-    @day = Date.today.month+1
+    @year = Date.today.year
+    @spend = @user.records.group("MONTH(start_time)")
+    @spending = @spend.sum(:total_price)[Date.today.month]
     case @month 
     when 1 then
     @income = @badget.find_by(month_id:2)
@@ -69,8 +72,6 @@ class UsersController < ApplicationController
     @incomes = @income.income
     end
     end
-    @spend = @buy.select{|value| value[:month_id]==@day}
-    @spending = @spend.sum{ |hash| hash[:price]}
-    
+    @balance = @incomes - @spending
   end
 end

@@ -5,6 +5,7 @@ class Buy < ApplicationRecord
     validates :price
   end
   belongs_to :user
+  belongs_to :record
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
 end

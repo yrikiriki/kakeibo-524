@@ -22,13 +22,14 @@ ActiveRecord::Schema.define(version: 2022_05_30_110110) do
   end
 
   create_table "buys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "start_time", null: false
     t.integer "category_id", null: false
     t.string "item_name", null: false
     t.integer "price", null: false
     t.bigint "user_id", null: false
+    t.bigint "record_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_id"], name: "index_buys_on_record_id"
     t.index ["user_id"], name: "index_buys_on_user_id"
   end
 
@@ -42,6 +43,15 @@ ActiveRecord::Schema.define(version: 2022_05_30_110110) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "start_time", null: false
+    t.integer "total_price", default: 0
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_records_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -60,6 +70,8 @@ ActiveRecord::Schema.define(version: 2022_05_30_110110) do
   end
 
   add_foreign_key "badgets", "users"
+  add_foreign_key "buys", "records"
   add_foreign_key "buys", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "records", "users"
 end

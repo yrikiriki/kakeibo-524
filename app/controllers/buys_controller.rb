@@ -4,15 +4,18 @@ class BuysController < ApplicationController
     @event = Buy.all
   end
   def new
+    @record = Record.find(params[:record_id])
     @buy = Buy.new
   end
 
   def create
+    @record = Record.find(params[:record_id])
     @buy = Buy.new(buy_params)
     if @buy.save
-      redirect_to new_buy_path
+      add_data
+      redirect_to record_path(@record)
     else
-      render :new
+      redirect_to record_path(@record)
     end
   end
   def show
@@ -20,9 +23,9 @@ class BuysController < ApplicationController
   end
 
   def destroy
-    @buy = Buy.find(params[:id])
-    @buy.destroy
-    redirect_to blogs_path, notice:"削除しました"
+    buy = Buy.find(params[:record_id])
+    delete_data
+    redirect_to record_path, notice:"削除しました"
   end
 
   def edit
@@ -32,7 +35,7 @@ class BuysController < ApplicationController
   def update
     @buy = Buy.find(params[:id])
     if @buy.update(blog_parameter)
-      redirect_to blogs_path, notice: "編集しました"
+      redirect_to buys_path, notice: "編集しました"
     else
       render 'edit'
     end
@@ -40,6 +43,21 @@ class BuysController < ApplicationController
   
   private
   def buy_params
-    params.require(:buy).permit(:category_id,:item_name,:start_time,:price).merge(user_id: current_user.id)
+    params.require(:buy).permit(:category_id,:item_name,:price).merge(user_id: current_user.id,record_id: params[:record_id])
+  end
+  def params_record_id
+    @item = Record.find(params[:record_id])
+  end
+  def add_data
+    record = Record.find(params[:record_id])
+    record.total_price += @buy.price
+    record.save
+  end
+  def delete_data
+    buy = Buy.find(params[:record_id])
+    record = Record.find(params[:id])
+    record.total_price -= buy.price
+    record.save
+    buy.destroy
   end
 end
