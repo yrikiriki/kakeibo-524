@@ -72,8 +72,10 @@ class UsersController < ApplicationController
     @incomes = @income.income
     end
     end
-    if @incomes != nil
+    if @incomes != nil && @spending != nil
     @balance = @incomes - @spending
+    elsif @incomes != nil
+      @balance = @incomes
     else
       @balance = "-#@spending"
     end
