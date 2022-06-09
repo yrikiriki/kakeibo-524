@@ -1,3 +1,23 @@
 .badget-list-main{
   padding-top: 135px;
 }
+.badget-list-main{
+  padding-top: 150px;
+  background-color: rgb(251, 244, 236);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+.badget-list-title{
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.badget-month{
+  margin-bottom: 10px;
+}
+.badget-income{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
