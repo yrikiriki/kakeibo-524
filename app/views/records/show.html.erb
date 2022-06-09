@@ -1,0 +1,58 @@
+<%= render "shared/second-header" %>
+
+<div class='btn'>
+<%= link_to 'Back', "/users/#{current_user.id}", class: "btn-text" %>
+</div>
+<div class="spending-main">
+ <div class="spending-main-upper">
+   <div class="spending-main-title">
+    <%=@record.start_time%>
+   </div>
+   <div class="total-spending">
+   <div class="total-spending-title">費用合計：</div>
+   <div class="total-spending-num"><%=@record.total_price%>円</div>
+   </div>
+ </div>
+ <div class="spending-main-lower">
+   <div class="lower-left">
+   <div class="spending-content">
+   <div class="user-spending-main">
+    <div class="user-spending-title">費用詳細</div>
+     <% @buys.each do |buy| %>
+    <div class="user-buy-content">
+    <div class="buy-list-category">
+     <%= buy.category.name %>
+    </div>
+    <div class="buy-list-name">
+     <%= buy.item_name %>
+    </div>
+    <div class="buy-list-price">
+     <%= buy.price %>円
+    </div>
+    <%=link_to "削除",record_buy_path(buy),method: :delete%>
+    </div>
+    <%end%>
+    </div>
+    </div>
+   </div>
+   <div class="lower-right">
+<div class="buy-list-title">購入記録</div>
+<%= form_with model: [@record,@buy], local: true do |f| %>
+<div class="buy-list-content">
+<div class="buy-category">
+<%= f.collection_select(:category_id, Category.all, :id, :name,{},{class:"select-box", id:"buy-category"})%>
+</div>
+<div class="buy-item-name">
+<%= f.text_field :item_name, class:"buy-input-default", id:"buy-item-name", placeholder:"例）トマト" %>
+</div>
+<div class="buy-item-name">
+<%= f.text_field :price, class:"buy-input-default", id:"buy-price", placeholder:"例）100" %>
+</div>
+<div class='buy-save-btn'>
+    <%= f.submit "record" ,class:"record-btn" %>
+  </div>
+</div>
+<%end%>
+   </div>
+ </div>
+</div>

@@ -1,0 +1,19 @@
+.btn{
+  height: 80px;
+  width: 80px;
+  position: fixed;
+  top: 80vh;
+  left:85vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgb(249, 187, 112);
+}
+.btn-text{
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+  font-family: 'Dancing Script', cursive;
+  font-size: 20px;
+}

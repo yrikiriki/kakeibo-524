@@ -10,6 +10,7 @@ class User < ApplicationRecord
          has_many :buys
          has_many :posts
          has_many :badgets
+         has_many :records
     extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :prefecture
     belongs_to :category

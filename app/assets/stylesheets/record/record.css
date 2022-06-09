@@ -1,0 +1,138 @@
+.record-new-main{
+  padding: 135px;
+}
+.spending-main{
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(251, 244, 236);
+  padding: 135px 0 0 0;
+}
+.spending-main-upper{
+  text-align: center;
+  width: 100vw;
+  margin-bottom: 50px;
+}
+.spending-main-title{
+  font-size: 50px;
+}
+.total-spending{
+  font-size: 40px;
+  font-weight: 600;
+  color: red;
+  display: flex;
+  justify-content: space-between;
+}
+.total-spending-title{
+  margin-left: 30vw;
+}
+.total-spending-num{
+  margin-right: 40vw;
+}
+.spending-main-lower{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+.lower-left{
+  padding-left: 30px;
+  width: 50%;
+}
+.user-spending-title{
+  font-size: 20px;
+  font-weight: 550;
+  margin-bottom: 10px;
+}
+.user-buy-content{
+  display: flex;
+  width: 50vw;
+}
+.buy-list-category{
+  width: 70px;
+  margin-right: 20px;
+}
+.buy-list-name{
+  width: 150px;
+  margin-right: 50px;
+}
+.buy-list-price{
+  width: 100px;
+  text-align: right;
+}
+.lower-right{
+  padding-left: 30px;
+  width: 50%;
+}
+.record-new-main{
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(251, 244, 236);
+  padding: 180px 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+.record-form-wrap{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.select-date-area{
+  text-align: center;
+}
+.select-date-text{
+  font-size: 30px;
+  margin: 10px;
+}
+.select-date{
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  margin-bottom: 20px;
+}
+select{
+  background-color: rgb(248, 234, 220);
+  border: solid 2px;
+  border-radius: 10px 10px 10px 10px;
+  margin-right: 10px;
+}
+.record-form-btn{
+  background-color: rgb(70, 67, 64);
+  border: solid 2px black;
+  border-radius: 10px 10px 10px 10px;
+  text-align: center;
+  color: rgb(248, 234, 220);
+  width: 50%;
+  font-size: 35px;
+  font-family: 'Dancing Script', cursive;
+}
+.lower-right{
+  width: 20%;
+}
+.buy-list-title{
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 550;
+}
+.buy-category{
+  margin-bottom: 10px ;
+}
+.buy-input-default{
+  width: 250px;
+  background-color: rgb(248, 234, 220);
+  border: solid 2px;
+  border-radius: 10px 10px 10px 10px;
+  margin-bottom: 10px;
+}
+.buy-save-btn{
+  text-align: center;
+}
+.record-btn{
+  background-color: rgb(70, 67, 64);
+  border: solid 2px black;
+  border-radius: 10px 10px 10px 10px;
+  text-align: center;
+  color: rgb(248, 234, 220);
+  width: 50%;
+  font-size: 35px;
+  font-family: 'Dancing Script', cursive;
+}

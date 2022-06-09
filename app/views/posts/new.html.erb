@@ -1,6 +1,10 @@
 <%= render "shared/second-header" %>
-
+<div class='btn'>
+<%= link_to 'Back', root_path, class: "btn-text" %>
+</div>
 <div class="post-main">
+
+<div class="post-main1">
   <div class="post-main-title">新規投稿</div>
    <%= form_with model: @post,url: posts_path,  local: true do |f| %>
    <%# render 'shared/error_messages', model: f.object %>
@@ -10,7 +14,7 @@
    <%= f.text_field :title, class:"input-default", id:"post-title", placeholder:"タイトル" %>
    </div>
    <div class="post-content">
-   <%= f.text_area :content, class:"input-default", id:"post-content", placeholder:"買い物内容" %>
+   <%= f.text_area :content, class:"input-default1", id:"post-content", placeholder:"買い物内容" %>
    </div>
    <div class="post-text">
    <%= f.text_field :text, class:"input-default", id:"post-text", placeholder:"ひとこと" %>
@@ -22,8 +26,9 @@
     <%= f.collection_select(:category_id, Category.all, :id, :name,{},{class:"select-box", id:"item-category"})%>
   </div>
 <div class='item-save-btn'>
-    <%= f.submit "保存" ,class:"save-btn" %>
+    <%= f.submit "share" ,class:"save-btn" %>
   </div>
     </div>
 <%end%>
+</div>
 </div>
