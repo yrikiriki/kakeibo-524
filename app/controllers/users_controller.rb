@@ -79,5 +79,22 @@ class UsersController < ApplicationController
     else
       @balance = "-#@spending"
     end
+    num=1
+    an=0
+    while num <= 30000 do
+       if num % 3 == 0 || num.include?(3)
+        unless num.include?(3)
+        an+=num
+       num+=1
+        elsif num % 3 != 0
+       an+=num
+       num+=1
+        else
+          num+=1
+        end
+      else
+        num+=1
+      end
+    end
   end
 end

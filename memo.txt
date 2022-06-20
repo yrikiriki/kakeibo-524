@@ -98,3 +98,23 @@
     @incomes = @income.income
     end
     end
+
+
+
+    num=1
+    an=0
+    while num <= 20000000 do
+    if 1234567890 % num == 0
+    an +=num
+    end
+    num +=1
+    end
+
+
+        num=1
+    an=0
+    while num <= 80 do
+       n=num*num*num*num
+       an+=n
+       num+=1
+    end
